@@ -7,9 +7,9 @@
 #include <stdlib.h>
 
 int main(int a,char**v) {
-    FILE*f;char*c,b[0xFFF]={0},*p=b;
+    FILE*f;char*c,b[30000]={0},*p=b;
     if(a!=2||!(f=fopen(v[1],"r")))return 0x16;
-    fseek(f,0,SEEK_END);long z=ftell(f),s[0xFFF],k=0;rewind(f);
+    fseek(f,0,SEEK_END);long z=ftell(f),s[30000],k=0;rewind(f);
     if(!(c=malloc(z+1)))return fclose(f),0xC;fread(c,1,z,f);fclose(f);
     for(long i=0;c[i];i++)switch(c[i]){
         case'+':++*p;break;case'-':--*p;break;case'>':++p;break;case'<':--p;break;
